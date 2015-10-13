@@ -1,2 +1,26 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div ng-app="">
+ 
+  <p>Input something in the input box:</p>
+  <p>Name: <input type="text" ng-model="name"></p>
+  <b><p ng-bind="name"> </p>!!!</b>
+
+  <p>Country: <input type="text" ng-model="country"></p>
+  I love <b>{{country}}</b></br></br></br>
+
+
+  <div ng-app ng-init="qty=1;cost=2">
+    <b>Invoice:</b>
+    <div>
+      Quantity: <input type="number" min="0" ng-model="qty">
+    </div>
+    <div>
+      Costs: <input type="number" min="0" ng-model="cost">
+    </div>
+    <div>
+      <b>Total:</b> {{qty * cost | currency}}
+    </div>
+  </div>
+
+</div>  
+
+
