@@ -1,0 +1,62 @@
+<div ng-app="myApp">
+  <h1>Lesson1</h1>
+
+  <ul>extends HTML with <b>ng-directives</b>
+    <li><b>ng-app</b> => define an AJS app</li>
+    <li>
+      <b>ng-model</b> => bind the value of HTML control (input, select...) to app data
+    </li>
+    <li><b>ng-bind</b> => binds app data to the HTML view</li>
+  </ul>
+
+  <h3>example 1</h3>
+
+  <div>Name : <input type="text" ng-model="name1"/></div>
+  way 1 : <div ng-bind="name1"></div>
+  way 2 : <div>{{name1}}</div>
+
+  <hr>
+  <div><b>ng</b> prefix</div>
+
+  <div><b>ng-init</b> initialize AJS app variables</div>
+  <h3>example 2</h3>
+  <div>print "VoTaiTri"</div>
+  <ul>with <b>ng-app</b> and <b>ng-init</b></ul>
+  <div ng-init="firstName='VoTaiTri';slogan='champion'">
+    <div>My name is <span ng-bind="firstName"></span></div>
+    <div>Slogan : {{slogan}}</div>
+  </div>
+
+  <ul>with <b>data-ng-app</b> and <b>data-ng-init</b></ul>
+
+  <li>if you want to make page HTML valid => use <b>data-ng-</b> instead <b>ng-</b></li>
+
+  <ul>AJS <b>Expressions</b>
+    <li>are written inside double braces: <b>{{expression}}</b></li>
+    <li>bind AngularJS data to HTML the same way as the <b>ng-bind</b></li>
+  </ul>
+
+  <hr>
+  <ul>AJS <b>Applications</b>
+    <li><b>modules</b> define AJS app</li>
+    <li><b>controllers</b> control AJS app => define = <b>ng-controller</b></li>
+  </ul>
+
+  <h3>Example 3</h3>
+  <div ng-controller="myCtrl">
+    My name : <input type="text" ng-model="name2"/><br>
+    Age : <input type="text" ng-model="age2"/><br>
+    My name is "{{name2}}", and i'm "{{age2}}" yearolds}} <br>
+    name upcase : {{name2 | uppercase}}
+  </div>
+
+  <script type="text/javascript">
+    var app = angular.module("myApp", []); //model define AJS app
+
+    //controller to control app
+    app.controller("myCtrl", function($scope) {
+      $scope.name2 = "tribeo";
+      $scope.age2 = "23";
+    })
+  </script>
+</div>
