@@ -1,0 +1,67 @@
+<div ng-app="">
+  <h1>Lesson 2</h1>
+
+  <h2>AngularJS Expression</h2>
+  <ul>same <b>ng-bind</b></ul>
+  <ul> much like <b>JavaScript expressions</b> => can contain literals, operators, and variables.</ul>
+  <ul>numbers are like <b>JavaScript numbers</b></ul>
+  <ul>strings are like <b>JavaScript strings</b></ul>
+  <ul>objects are like <b>JavaScript objects</b></ul>
+  <ul>arrays are like <b>JavaScript arrays</b></ul>
+
+  <ul>(*) Using <b>ng-init</b> is not very common, not good for initialize data</ul>
+
+  <h2>AngularJS Directives</h2>
+  <ul><b>ng-app</b></ul>
+  <ul><b>ng-init</b></ul>
+  <ul><b>ng-model</b></ul>
+
+
+  <h2>Data binding</h2>
+
+  <h2>Repeating HTML Elements</h2>
+  <ul><b>ng-repeat</b> </ul>
+  <h3>Example 1</h3>
+  <div ng-init="manu_players=['Martial', 'Carrick', 'Smalling']">
+    <ul>
+      <li ng-repeat="x in manu_players" style="color: red">
+        {{x}}
+      </li>
+    </ul>
+  </div>
+
+  <h3>Example 2</h3>
+  <div ng-init="manu_profile=[
+    {name: 'Martial', age: '20'},
+    {name: 'Carrick', age: '34'},
+    {name: 'Smalling', age: '26'}]">
+    <ul>
+      <li ng-repeat="x in manu_profile">
+        {{x.name +', '+ x.age}} years old
+      </li>
+    </ul>
+  </div>
+
+
+  <h2>The <i>ng-app</i> Directive</h2>
+  <ul>defines the <b>root element</b> of an AngularJS application</ul>
+  <ul>will <b>auto-bootstrap</b> when web page load</ul>
+
+
+  <h2>The <i>ng-init</i> Directive</h2>
+
+
+  <h2>The <i>ng-model</i> Directive</h2>
+  <ul> can also :
+    <li>Provide type validation for application data (number, email, required)</li>
+    <li>Provide status for application data (invalid, dirty, touched, error)</li>
+    <li>Provide CSS classes for HTML elements</li>
+    <li>Bind HTML elements to HTML forms</li>
+  </ul>
+
+
+  <ul>(*) AngularJS is perfect for database CRUD applications.</ul>
+
+  <a href="/lesson1">Lesson 1</a>
+  <a href="/lesson3">Lesson 3</a>
+</div>

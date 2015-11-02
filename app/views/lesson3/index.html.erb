@@ -1,0 +1,55 @@
+<h1>AngularJS Controllers</h1>
+
+<a href="/lesson2">Lesson 2</a>
+
+<div ng-app="lesson3" >
+  <ul>control the data of AJS app</ul>
+  <ul>are regular <b>JavaScript Objects</b></ul>
+  <ul>was defined by : <b>ng-controller</b></ul>
+
+  <div ng-controller="lesson3Ctrl">
+    <h3>Example 1</h3>
+    First name : <input type="text" ng-model="firstName"><br>
+    Last name : <input type="text" ng-model="lastName"><br>
+    <br>
+    Full name is : {{lastName + ' ' + firstName}}
+  </div>
+
+
+  <h2>Controller method</h2>
+  <ul>A controller can have methods</ul>
+  <h3>Example 2</h3>
+  <div ng-controller="personCtrl">
+    Player'S name : <input type="text" ng-model="player_name"/>
+    Age : <input type="number" min=0 ng-model="player_age"/>
+    <br>
+    Profile : {{profile()}}
+  </div>
+
+
+  <h2>Controllers In External Files</h2>
+  <div ng-controller="externalCtrl">
+    <ul>
+      <li ng-repeat="x in manu_player">
+        {{x.name + " : " + x.position}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript" >
+  var app = angular.module("lesson3", []);
+
+  app.controller("lesson3Ctrl", function($scope){
+    $scope.firstName = "Vo Tai";
+    $scope.lastName = "Tri"
+  });
+
+  app.controller("personCtrl", function($scope){
+    $scope.player_name = "Anthony Martial";
+    $scope.player_age = 20;
+    $scope.profile = function() {
+      return $scope.player_name + " : " + $scope.player_age
+    };
+  });
+</script>
