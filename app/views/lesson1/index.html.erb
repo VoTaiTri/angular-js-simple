@@ -17,6 +17,7 @@
 
 
   <div><b>ng</b> prefix</div>
+  <ul>AngularJS starts automatically when the web page has loaded.</ul>
 
   <div><b>ng-init</b> initialize AJS app variables</div>
   <h3>example 2</h3>
@@ -31,7 +32,7 @@
   <li>if you want to make page HTML valid => use <b>data-ng-</b> instead <b>ng-</b></li>
 
   <ul>AJS <b>Expressions</b>
-    <li>are written inside double braces: <b>{{ expression }}</b></li>
+    <li>are written inside double braces: <b>{{</b> and <b>}}</b></li>
     <li>bind AngularJS data to HTML the same way as the <b>ng-bind</b></li>
   </ul>
 
@@ -46,6 +47,8 @@
     My name is {{name2 + ", i'm " + age2 + " yearold"}} <br>
     name upcase : {{name2 | uppercase}}
   </div>
+
+  <a href="<%= lesson2_path %>">Lesson2</a>
   <script type="text/javascript">
   var app = angular.module("myApp", []); //model define AJS app
 
