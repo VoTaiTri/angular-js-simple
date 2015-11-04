@@ -1,0 +1,60 @@
+<h1>AngularJS Filters</h1>
+<ul>
+  <li>currency</li>
+  <li>uppercase</li>
+  <li>lowercase</li>
+  <li>orderBy</li>
+  <li>filter</li>
+</ul>
+
+
+<div ng-app="lesson4">
+  <h3>Example 1</h3>
+  <div ng-controller="Ctrl1">
+    <input type="text" ng-model="name1">
+    <div>Name normal: {{name1}}</div>
+    <div>Name lower: {{name1 | lowercase}}</div>
+    <div>Name upper: {{name1 | uppercase}}</div>
+  </div>
+  <br>
+
+  <h3>Example 2</h3>
+  <div ng-controller="Ctrl2">
+    <input type="number" min=0 ng-model="quantity">
+    <input type="number" min=0 ng-model="cost">
+    <br>
+    <div>Total : {{quantity * cost | currency}}</div>
+  </div>
+  <br>
+
+  <h3>Example 3</h3>
+  <div ng-controller="Ctrl3">
+    <input type="text" ng-model="search">
+    <ul>
+      <li ng-repeat="x in names_arr | filter:search | orderBy:'firstName'">
+        {{x.firstName + ' ' + (x.lastName | uppercase)}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson4", []);
+  
+  app.controller("Ctrl1", function($scope){
+    $scope.name1 = "Vo Tai Tri"
+  });
+
+  app.controller("Ctrl2", function($scope){
+    $scope.quantity = 0;
+    $scope.cost = 1;
+  });
+
+  app.controller("Ctrl3", function($scope){
+    $scope.names_arr = [{firstName: "Phil", lastName: "Jones"},
+                        {firstName: "Ashley", lastName: "Young"}, 
+                        {firstName: "David", lastName: "Degea"},
+                        {firstName: "Chris", lastName: "Smalling"},
+                        {firstName: "Luke", lastName: "Shaw"}];
+  });
+</script>
