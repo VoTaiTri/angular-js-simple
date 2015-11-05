@@ -1,0 +1,65 @@
+<h1>Lesson 5 : AngularJS AJAX - $http</h1>
+<h2>5/11/2015</h2>
+
+<ul><b>$http</b> : AngularJS service for <b><i>reading data</i></b> from <b><i>remote servers</i></b></ul>
+<div ng-app="lesson5">
+  <div ng-controller="customersCtrl">
+    <h3>Providing Data</h3>
+    <ul>AngularJS <b>$http</b> is a <b>core service</b> for <b>reading data</b> from web servers</b></ul>
+    <ul>In function
+      <li><b>$scope</b> is the <b>application object</b></li>
+      <li><b>$http</b> is an <b>XMLHttpRequest object</b></li>
+      <li><b>$http.get()</b> reads <b>JSON data</b> form <i>source</i></li>
+      <li>If <b>success</b>, the controller creates a property (names) in the scope, with JSON data from the server</li>
+    </ul>
+
+    <h4>Example 1</h4>
+    <ul>source : <i>http://www.w3schools.com/angular/customers.php</i></ul>
+    <ul>This data was get form source</ul>
+    <ul>
+      <li ng-repeat="x in names">
+        {{x.Name + " come from : " + x.Country}}
+      </li>
+    </ul>
+  </div>
+
+  <h1>Lesson 6 : AngularJS Tables</h1>
+  <h2>11/11/2015</h2>
+  <ul><b>ng-repeat</b> with <b>table</b> tag</ul>
+
+  <h3>Example 2</h3>
+  <div ng-controller="myTable"> 
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      <tr ng-repeat="x in names">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <ul>we can use :
+    <li>with style CSS</li>
+    <li><b>$index</b> => index of array, start from 0</li>
+    <li><b>$even</b> or <b>$odd</b></li>
+    <li></li>
+  </ul>
+</div>
+
+<script>
+  var app = angular.module("lesson5", []);
+  app.controller("customersCtrl", function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+      .success(function (response) {$scope.names = response.records;});
+  });
+
+  app.controller("myTable", function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+      .success(function (response) {$scope.names = response.records;});
+  });
+</script>
+
+<a href="/lesson4">Lesson 4</a>
