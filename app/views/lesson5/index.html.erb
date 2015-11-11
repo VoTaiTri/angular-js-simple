@@ -23,14 +23,43 @@
     </ul>
   </div>
 
+  <h1>Lesson 6 : AngularJS Tables</h1>
+  <h2>11/11/2015</h2>
+  <ul><b>ng-repeat</b> with <b>table</b> tag</ul>
+
+  <h3>Example 2</h3>
+  <div ng-controller="myTable"> 
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      <tr ng-repeat="x in names">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <ul>we can use :
+    <li>with style CSS</li>
+    <li><b>$index</b> => index of array, start from 0</li>
+    <li><b>$even</b> or <b>$odd</b></li>
+    <li></li>
+  </ul>
 </div>
 
 <script>
   var app = angular.module("lesson5", []);
   app.controller("customersCtrl", function($scope, $http) {
-  $http.get("http://www.w3schools.com/angular/customers.php")
-  .success(function (response) {$scope.names = response.records;});
-});
+    $http.get("http://www.w3schools.com/angular/customers.php")
+      .success(function (response) {$scope.names = response.records;});
+  });
+
+  app.controller("myTable", function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+      .success(function (response) {$scope.names = response.records;});
+  });
 </script>
 
 <a href="/lesson4">Lesson 4</a>
