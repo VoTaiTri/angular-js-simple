@@ -1,0 +1,32 @@
+<h1>Lesson8 12/11/2015</h1>
+<h3>AngularJS HTML DOM</h3>
+
+<ul><b>binding</b> application data to the attributes of <b>HTML DOM</b> elements</ul>
+
+<div ng-app="lesson8">
+  <ul><b>ng-disabled</b> => <b>disabled</b> attribute of HTML elements</ul>
+  <h3>Example 1</h3>
+  <div ng-controller="controller1">
+    <p>
+      <button ng-disabled="value1">Click Me!</button>
+    </p>
+    <p>
+      <input type="checkbox" ng-model="value1"> Button
+    </p>
+    <p>{{value1}}</p>
+  </div>
+
+  <ul><b>ng-disabled</b> is same</ul>
+
+  <ul><b>ng-hide</b> is same</ul>
+
+  <a href="/lesson7">Lesson 7</a>
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson8", []);
+
+  app.controller("controller1", function($scope){
+    $scope.value1 = true
+  });
+</script>
