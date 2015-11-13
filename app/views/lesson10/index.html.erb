@@ -1,0 +1,45 @@
+<h1>Lesson10 13/11/2015</h1>
+
+<h3>Simple angularJS demo</h3>
+
+<div ng-app="lesson10" ng-controller="myController">
+  <input type="number" ng-model="value1"><br>
+  <input type="number" ng-model="value2"><br>
+
+  <select ng-model="operation">
+    <option value="sum">summation</option>
+    <option value="sub">subtraction</option>
+    <option value="multi">multiplication</option>
+    <option value="div">division</option>
+  </select>
+
+  <button ng-click="caculatior()">Process</button><br>
+  {{result}}
+</div>
+
+<a href="/lesson9">Lesson 9</a>
+
+<script type="text/javascript">
+  var app = angular.module("lesson10", []);
+
+  app.controller("myController", function($scope){
+    $scope.caculatior = function() {
+      var value1 = parseInt($scope.value1);
+      var value2 = parseInt($scope.value2);
+      var operation = $scope.operation;
+
+      if(operation == "sum") {
+        return $scope.result = value1 + value2;
+      }
+      else if(operation == "sub") {
+        return $scope.result = value1 - value2;
+      }
+      else if(operation == "multi") {
+        return $scope.result = value1 * value2;
+      }
+      else if(operation == "div") {
+        return $scope.result = value1 / value2;
+      }
+    };
+  });
+</script>
