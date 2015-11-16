@@ -1,0 +1,49 @@
+<h1>Lesson 11 16/11/2015</h1>
+
+
+
+<div ng-app="lesson11">
+  <h3>AngularJS Events</h3>
+  <ul><h4>ng-click</h4> =
+    <li>"expresiones"</li>
+    <li>"function name"</li>
+  </ul>
+
+  <h3>Example 1</h3>
+  <div ng-controller="myCtrl1">
+    <button ng-click="count = count + 1">Click me to count up 1</button><br>
+    <button ng-click="count = count - 1">Click me to count down 1</button><br>
+    Count = <b>{{count}}</b>
+  </div>
+
+  <ul><h4>ng-hide</h4> => to set the <b>visibility</b> of a part of an application.
+  </ul>
+  <h3>Example 2</h3>
+  <div ng-controller="myCtrl2">
+    <button ng-click="tongle()">Hide Panel!!!</button>
+
+    <div disabled="varHide">
+      Name : <input type="text" ng-model="name"><br>
+      Age : <input type="number" min=0 ng-model="age"><br>
+      Welcome {{name}} !!!
+      Are you {{age}} years old?
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson11", []);
+
+  app.controller("myCtrl1", function($scope) {
+    $scope.count = 1;
+  });
+
+  app.controller("myCtrl2", function($scope) {
+    $scope.name = "Vo Tai Tri";
+    $scope.age = 23;
+    $scope.varHide = true;
+    $scope.tongle = function() {
+      $scope.varHide = !$scope.varHide;
+    };
+  });
+</script>

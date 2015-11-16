@@ -10,4 +10,5 @@ root "lesson1#index"
   get "lesson8" => "lesson8#index"
   get "lesson9" => "lesson9#index"
   get "lesson10" => "lesson10#index"
+  get "lesson11" => "lesson11#index"
 end
