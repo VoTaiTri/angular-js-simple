@@ -1,0 +1,29 @@
+<h1>Lesson13 17/1/2015</h1>
+<h3>AngularJS Forms</h3>
+
+<li>input</li>
+<li>select</li>
+<li>button</li>
+<li>textarea</li>
+
+<h3>Example 1</h3>
+<div ng-app="lesson13" ng-controller="myCtrl1">
+  What's your name? <input type="text" ng-model="user.fullName"><br>
+  <button ng-click="reset()">RESET</button>
+  <p>Form : {{user.fullName}}</p>
+  <p>Master : {{master.fullName}}</p>
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson13", []);
+
+  app.controller("myCtrl1", function($scope) {
+    $scope.master = {fullName: "Vo Tai Tri"};
+
+    $scope.reset = function() {
+      $scope.user = angular.copy($scope.master)
+    };
+
+    $scope.reset();
+  });
+</script>
