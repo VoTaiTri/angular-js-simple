@@ -1,7 +1,5 @@
 <h1>Lesson 11 16/11/2015</h1>
 
-
-
 <div ng-app="lesson11">
   <h3>AngularJS Events</h3>
   <ul><h4>ng-click</h4> =
@@ -22,7 +20,7 @@
   <div ng-controller="myCtrl2">
     <button ng-click="tongle()">Hide Panel!!!</button>
 
-    <div disabled="varHide">
+    <div ng-hide="varHide">
       Name : <input type="text" ng-model="name"><br>
       Age : <input type="number" min=0 ng-model="age"><br>
       Welcome {{name}} !!!
@@ -30,6 +28,10 @@
     </div>
   </div>
 </div>
+
+<a href="/lesson10">Lesson 10</a>
+| |
+<a href="/lesson12">Lesson 12</a>
 
 <script type="text/javascript">
   var app = angular.module("lesson11", []);

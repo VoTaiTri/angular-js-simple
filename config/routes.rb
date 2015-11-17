@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root "lesson1#index"
+  root "lesson1#index"
 
   get "lesson1" => "lesson1#index"
   get "lesson2" => "lesson2#index"
@@ -11,4 +11,5 @@ root "lesson1#index"
   get "lesson9" => "lesson9#index"
   get "lesson10" => "lesson10#index"
   get "lesson11" => "lesson11#index"
+  get "lesson12" => "lesson12#index"
 end

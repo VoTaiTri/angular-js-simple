@@ -1,0 +1,24 @@
+<h1>Lesson12 17/11/2015</h1>
+
+<h3>Modules and Controllers in Files</h3>
+
+<div ng-app="lesson12">
+  <div ng-controller="myCtrl1">
+    Your name : <input type="text" ng-model="name"><br>
+    Where do you want to go? <input type="text" ng-model="country"><br>
+    Welcome {{name}} to {{country}} !!!<br>
+  </div>
+  <br><br>
+  <div ng-controller="myCtrl2">
+    Search box : <input type="text" ng-model="search">
+    <ul>Listing of United's player :
+      <li ng-repeat="x in players | filter:search | orderBy:'full_name'">
+        Player : {{x.full_name}} | | Pos : {{x.pos | uppercase}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<a href="/lesson11">Lesson 11</a>
+
+<script src="lesson12.js"></script>
