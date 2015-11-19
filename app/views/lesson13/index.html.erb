@@ -14,16 +14,21 @@
   <p>Master : {{master.fullName}}</p>
 </div>
 
+<a href="/lesson12">Lesson 12</a>
+| |
+<a href="/lesson14">Lesson 14</a>
+
 <script type="text/javascript">
   var app = angular.module("lesson13", []);
 
   app.controller("myCtrl1", function($scope) {
     $scope.master = {fullName: "Vo Tai Tri"};
+    $scope.user = {fullName: "tribeo"};
 
     $scope.reset = function() {
       $scope.user = angular.copy($scope.master)
     };
 
-    $scope.reset();
+    // $scope.reset();
   });
 </script>
