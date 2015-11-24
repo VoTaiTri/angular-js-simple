@@ -1,0 +1,37 @@
+<h1>Lesson15 24/11/2015</h1>
+
+<h3>Example for validation</h3>
+
+<form ng-app="lesson15" ng-controller="validateCtrl" name="myForm" novalidate>
+  <div>
+    Username:
+    <input type="text" name="user" ng-model="user" required>
+
+    <span style="color:red" ng-show="myForm.user.$invalid">
+      <span ng-show="myForm.user.$error.required">Username is required</span>
+    </span>
+  </div>
+
+  <div>
+    Email:
+    <input type="email" name="email" ng-model="email" required>
+
+    <span style="color:red" ng-show="myForm.email.$invalid">
+      <span ng-show="myForm.email.$error.required">Email is required</span>
+      <span ng-show="myForm.email.$error.email">Invalid Email</span>
+    </span>
+  </div>
+
+  <input type="submit" ng-disabled="myForm.user.$invalid ||myForm.email.$invalid">
+</form>
+
+<a href="/lesson14">Lesson 14</a>
+
+<script type="text/javascript">
+  var app = angular.module("lesson15", []);
+
+  app.controller("validateCtrl", function($scope) {
+    $scope.user = "tribeo";
+    $scope.email = "tribeo";
+  });
+</script>
