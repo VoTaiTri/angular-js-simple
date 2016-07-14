@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "lesson15" => "lesson15#index"
   get "lesson15" => "lesson15#index"
   get "lesson16" => "lesson16#index"
+  get "lesson17" => "lesson17#index"
 end

@@ -1,0 +1,48 @@
+<h1>Lesson17 14/7/2016</h1>
+
+<h3><i>ng-model</i> directive</h3>
+
+<ul>2 way binding :
+  <li><i>ng-bind</i></li>
+  <li><i>{{}}</i></li>
+</ul>
+
+<form ng-app="" name="myForm" ng-init="emailAddress1='tribeo@gmail.com'">
+  <h3>Example 1 : Validate user input</h3>
+  <li><i>ng-model</i> can provide type validation for application data (<i>number, e-mail, required</i>)</li>
+  Email :
+  <input type="email" name="myEmail" ng-model="emailAddress"/>
+  <span ng-show="myForm.myEmail.$error.email">Not a valid e-mail address</span>
+  <hr />
+
+  <h3>Example 2 : Application Status</h3>
+  <li><i>ng-model</i> can provide status for application data (<i>invalid, dirty, touched, error</i>)</li>
+  <input type="email" name="myEmail1" ng-model="emailAddress1" required/>
+  <p>Edit the e-mail address, and try to change the status.</p>
+  <h3>Status</h3>
+  <p>Valid = {{myForm.myEmail1.$valid}} (if true, the value meets all criteria).</p>
+  <p>Dirty = {{myForm.myEmail1.$dirty}} (if true, the value has been changed)</p>
+  <p>Touched = {{myForm.myEmail1.$touched}} (if true, the field has been in focus)</p>
+</form>
+
+<h3>CSS Classes</h3>
+<ul><i>ng-model</i> provides CSS classes for HTML elements
+  <li>ng-invalid, ng-valid</li>
+  <li>ng-empty, ng-not-empty</li>
+  <li>ng-touched, ng-untouched</li>
+  <li>ng-dirty</li>
+  <li>ng-pending</li>
+  <li>ng-pristine</li>
+</ul>
+
+<a href="/lesson16">Lesson 16</a> || <a href="/lesson18">Lesson 18</a>
+
+<style type="text/css">
+  input.ng-invalid {
+    background-color: red;
+  }
+
+  input.ng-valid {
+    background-color: lightblue;
+  }
+</style>
