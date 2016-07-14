@@ -1,0 +1,65 @@
+<h1>Lesson16 14/07/2016</h1>
+
+<h3>Create New Directives</h3>
+
+<div ng-app="lesson16">
+  <div>You can create your own directives by use <b>directive()</b> function</div>
+
+  <ul>You can invoke a directive by using:
+    <li>Element name => restrict <b>E</b></li>
+    <li>Attribute => restrict <b>A</b></li>
+    <li>Class => restrict <b>C</b></li>
+    <li>Comment => restrict <b>M</b></li>
+  </ul>
+
+  <div>By default the value is <b>EA</b> => both <i>Element names</i> and <i>attribute names</i> can invoke the directive.</div>
+
+  <h3>Example 1 : Element</h3>
+  <tribeo-element></tribeo-element>
+  <hr />
+
+  <h3>Example 2 : Attribute</h3>
+  <div tribeo-attribute></div>
+  <hr />
+
+  <h3>Example 3 : Class</h3>
+  <li>must add <i>restrict : "C"</i> to return</li>
+  <div class="tribeo-class"></div>
+  <hr />
+
+  <h3>Example 4 : Comment</h3>
+  <li>must add <i>restrict : "M"</i> to return</li>
+  <li>add <i>replace : true</i> to show text in comment</li>
+  <!-- directive: tribeo-comment -->
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson16", []);
+
+  app.directive("tribeoElement", function() {
+    return {
+      template : "<h1 style='color:red'>tribeo Element Directive</h1>"
+    };
+  });
+
+  app.directive("tribeoAttribute", function() {
+    return {
+      template : "<h1 style='color:blue'>tribeo Attribute Directive</h1>"
+    };
+  });
+
+  app.directive("tribeoClass", function() {
+    return {
+      restrict : "C",
+      template : "<h1 style='color:green'>tribeo Class Directive</h1>"
+    };
+  });
+
+  app.directive("tribeoComment", function() {
+    return {
+      restrict : "M",
+      replace : true,
+      template : "<h1 style='color:gray'>tribeo Comment Directive</h1>"
+    };
+  });
+</script>
