@@ -1,0 +1,42 @@
+<h1>Lesson18 21/7/2016</h1>
+
+<h3>Root Scope</h3>
+
+<ul>
+  <li>All applications have a <b>$rootScope</b></li>
+  <li>If a variable has the same name in both the current scope and in the rootScope => the application use the one in the current scope.</li>
+</ul>
+
+<h3>Example 1</h3>
+<div>Change text and color of <i>value</i> with many scope</div>
+
+<div ng-app="lesson18">
+  <p>In root scope</p>
+  <h2 style="color:{{color}}">{{value}}</h2>
+  <hr />
+
+  <div ng-controller="myCtrl">
+    <p>In current scope</p>
+    <h2 style="color:{{color}}">{{value}}</h2>
+  </div>
+  <hr />
+
+  <p>Back to root scope</p>
+  <h2 style="color:{{color}}">{{value}}</h2>
+</div>
+
+<a href="/lesson17">Lesson 17</a> || <a href="/lesson19">Lesson 19</a>
+
+<script type="text/javascript">
+  var app = angular.module("lesson18", []);
+
+  app.controller("myCtrl", function($scope){
+    $scope.value = "Scope in my controller";
+    $scope.color = "blue";
+  });
+
+  app.run(function($rootScope){
+    $rootScope.value = "Scope out of controller";
+    $rootScope.color = "red";
+  });
+</script>
