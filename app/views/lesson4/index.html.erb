@@ -1,40 +1,65 @@
 <h1>AngularJS Filters 4/11/2015</h1>
 <ul>
-  <li>currency</li>
-  <li>uppercase</li>
-  <li>lowercase</li>
-  <li>orderBy</li>
-  <li>filter</li>
+  <li class="code">currency</li>
+  <li class="code">date</li>
+  <li class="code">filter</li>
+  <li class="code">json</li>
+  <li class="code">limitTo</li>
+  <li class="code">number</li>
+  <li class="code">uppercase</li>
+  <li class="code">lowercase</li>
+  <li class="code">orderBy</li>
 </ul>
 
+<h3>Filters can be added to expressions by using the pipe character <b class="code">|</b></h3>
 
 <div ng-app="lesson4">
   <h3>Example 1</h3>
+  <li class="code">uppercase</li>
+  <li class="code">lowercase</li>
   <div ng-controller="Ctrl1">
     <input type="text" ng-model="name1">
     <div>Name normal: {{name1}}</div>
     <div>Name lower: {{name1 | lowercase}}</div>
     <div>Name upper: {{name1 | uppercase}}</div>
   </div>
-  <br>
+  <hr />
 
   <h3>Example 2</h3>
+  <li class="code">currency</li>
   <div ng-controller="Ctrl2">
     <input type="number" min=0 ng-model="quantity">
     <input type="number" min=0 ng-model="cost">
     <br>
     <div>Total : {{quantity * cost | currency}}</div>
   </div>
-  <br>
+  <hr />
 
   <h3>Example 3</h3>
+  <h3>Adding Filters to Directives</h3>
   <div ng-controller="Ctrl3">
     <input type="text" ng-model="search">
     <ul>
       <li ng-repeat="x in names_arr | filter:search | orderBy:'firstName'">
-        {{x.firstName + ' ' + (x.lastName | uppercase)}}
+        {{x.firstName + " " + (x.lastName | uppercase)}}
       </li>
     </ul>
+  </div>
+  <hr />
+
+  <h3>Example 4</h3>
+  <h3>Click to change the sorting of list</h3>
+  <div ng-controller="Ctrl4">
+    <table border="1" width="50%">
+      <tr>
+        <th ng-click="orderByMe('name')">Name</th>
+        <th ng-click="orderByMe('country')">Country</th>
+      </tr>
+      <tr ng-repeat="x in names | orderBy:myOrderBy ">
+        <td>{{x.name}}</td>
+        <td>{{x.country}}</td>
+      </tr>
+    </table>
   </div>
 </div>
 
@@ -59,5 +84,24 @@
                         {firstName: "David", lastName: "Degea"},
                         {firstName: "Chris", lastName: "Smalling"},
                         {firstName: "Luke", lastName: "Shaw"}];
+  });
+
+  app.controller("Ctrl4", function($scope){
+    $scope.names = [
+      {name: "VoTaiTri", country: "VietNam"},
+      {name:"Jani",country:"Norway"},
+      {name:"Carl",country:"Sweden"},
+      {name:"Margareth",country:"England"},
+      {name:"Hege",country:"Norway"},
+      {name:"Joe",country:"Denmark"},
+      {name:"Gustav",country:"Sweden"},
+      {name:"Birgit",country:"Denmark"},
+      {name:"Mary",country:"England"},
+      {name:"Kai",country:"Norway"}
+    ];
+
+    $scope.orderByMe = function(field) {
+      $scope.myOrderBy = field;
+    };
   });
 </script>
