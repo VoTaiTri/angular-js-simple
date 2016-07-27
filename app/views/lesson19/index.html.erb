@@ -1,0 +1,109 @@
+<div ng-app="lesson19">
+  <h1>Lesson19 : 27/7/2016</h1>
+
+  <h2>AngularJS Services</h2>
+
+  <ul>What is a Service?
+    <li>is a function or object</li>
+    <li>available and limited for your AJS app</li>
+  </ul>
+
+  <ul>AngularJS has about <b>30</b> built-in services
+    <li class="code">$location</li>
+    <li class="code">$http</li>
+    <li class="code">$timeout</li>
+    <li class="code">$interval</li>
+  </ul>
+
+  <h3>Example 1 : <i class="code">$location</i></h3>
+  <div>=> return information about the location of the current web page</div>
+  <div ng-controller="myCtrl1">
+    <p>The url of this page is:</p>
+    <h3>{{pageUrl}}</h3>
+  </div>
+  <ul><b>Note :</b>
+    <li><i class="code">$location</i> is passed in to the controller as an <b>argument</b></li>
+    <li>In order to use the <b>service</b> in the controller, it must be <i>defined as a dependency</i></li>
+    <li><i class="code">$location</i> like <i class="code">window.location</i></li>
+    <li>But <b>AngularJS</b> prefers that you use the i class="code">$location</i> instead of the <i class="code">window.location</i> object.</li>
+  </ul>
+  <hr />
+
+  <h3>Example 2 : <i class="code">$http</i></h3>
+  <li>one of the most common used services in AJS app</li>
+  <li>makes a request to the server, and lets your app handle the response</li>
+  <li>learn more <a href="http://www.w3schools.com/angular/angular_http.asp" target="blank">AngularJS Http Tutorial</a></li>
+  <div ng-controller="myCtrl2">
+    <p>Today"s welcome message is:</p>
+    <h1>{{myWelcome}}</h1>
+  </div>
+  <hr />
+
+  <h3>Example 3 : <i class="code">$timeout</i></h3>
+  <li>is AJS' version of the <i class="code">window.setTimeout</i> function</li>
+  <div ng-controller="myCtrl3">
+    <p>This header will change after 2 seconds :</p>
+    <h1>{{myHeader}}</h1>
+   </div>
+  <hr />
+
+  <h3>Example 4 : <i class="code">$interval</i></h3>
+  <li>is AJS' version of the <i class="code">window.setInterval</i> function</li>
+  <div>=> Display the time every second</div>
+  <div ng-controller="myCtrl4">
+    <p>The time is :</p>
+    <h1>{{theTime}}</h1>
+   </div>
+  <hr />
+
+  <h3>Example 4 : Create new Service</h3>
+  <div ng-controller="myCtrl5">
+    <p>convert from <b>decimal</b> to <b>hexadecimal</b></p>
+    <input type="number" ng-model="decNum"></input>
+    <button ng-click="convertHex()">Convert</button>
+    <h1>{{hexNum}}</h1>
+   </div>
+</div>
+
+<script type="text/javascript">
+  var app = angular.module("lesson19", []);
+
+  app.controller("myCtrl1", function($scope, $location){
+    $scope.pageUrl = $location.absUrl();
+  });
+
+  app.controller("myCtrl2", function($scope, $http){
+    $http.get("http://www.w3schools.com/angular/welcome.htm").then(function(response){
+        $scope.myWelcome = response.data;
+    });
+  });
+
+  app.controller("myCtrl3", function($scope, $timeout){
+    $scope.myHeader = "Hello World!";
+    $timeout(function(){
+      $scope.myHeader = "How are you today?";
+    }, 2000);
+  });
+
+  app.controller("myCtrl4", function($scope, $interval){
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function(){
+      $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+  });
+
+
+  app.service("hexafy", function(){
+    this.myFunc = function(x){
+      return x.toString(16);
+    };
+  });
+
+  app.controller("myCtrl5", function($scope, hexafy){
+    $scope.decNum = 255;
+    $scope.hexNum = hexafy.myFunc($scope.decNum);
+    $scope.convertHex = function(){
+      $scope.hexNum = hexafy.myFunc($scope.decNum);
+    }
+  });
+</script>
